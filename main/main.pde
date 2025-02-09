@@ -40,18 +40,14 @@ void draw()
   drawButton();
   
   drawSlider(secSliderPosX1, secSliderPosX2, secSliderPosY, circlePosition, 0);
-  drawSlider(minSliderPosX1, minSliderPosX2, minSliderPosY, circlePosition, 1);
-  drawSlider(hourSliderPosX1, hourSliderPosX2, hourSliderPosY, circlePosition, 2);
+  drawSlider(minSliderPosX1, minSliderPosX2, minSliderPosY, circlePosition, 1);  
   
-  drawBird();  
+  drawBird();
 }
 
 
 void update() 
-{  
-  if (!drawingBird)
-    startTime = millis();
-  
+{
   sizeChange(); // definita in utility
   
   handLogic(); // definita in utility

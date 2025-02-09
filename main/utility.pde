@@ -2,7 +2,6 @@ void sizeChange()
 {
   if (lastWidth != width)
   {
-    println("cai");
     systemTimeButtonPosX = width * 1/12;
     systemTimeButtonPosY = height * 1/12;
     systemTimeButtonSizeX = width / 6;
@@ -12,20 +11,15 @@ void sizeChange()
     birdSize = (bird.width/2) * (float(width)/610000); 
     
     secSliderPosX1 = width*4/6;
-    secSliderPosX2 = secSliderPosX1 + 200;
+    secSliderPosX2 = secSliderPosX1 + 196;
     secSliderPosY = height * 1/7;
     
     minSliderPosX1 = width*4/6;
-    minSliderPosX2 = minSliderPosX1 + 200;
+    minSliderPosX2 = minSliderPosX1 + 196;
     minSliderPosY = height * 3/14;
     
-    hourSliderPosX1 = width*4/6;
-    hourSliderPosX2 = hourSliderPosX1 + 200;
-    hourSliderPosY = height * 2/7;
-    
-    circlePosition = new int[] {secSliderPosX1, secSliderPosX1, secSliderPosX1, secSliderPosX1};
-    lastCirclePosition = new int[] {secSliderPosX1, secSliderPosX1, secSliderPosX1, secSliderPosX1};
-
+    circlePosition = new int[] {secSliderPosX1, secSliderPosX1};
+    lastCirclePosition = new int[] {secSliderPosX1, secSliderPosX1};
   } 
   
   lastWidth = width;
@@ -61,6 +55,7 @@ void handLogic()
       rotationH += radians(6);
       cuckooSound.rewind();
       cuckooSound.play();
+      startTime = millis();
     }
   }
   else if (systemTime)
@@ -79,37 +74,31 @@ void handLogic()
 }
 
 
-void sliderLogic(int sliderPosY, int circlePosition[], int circleNumber)
+void sliderLogic(int sliderPosY, int circlePos[], int circleNumber)
 {
   // Gestisce le posizioni dei cerchi
   if (isOnSlider(sliderPosY) && mousePressed && !systemTime)
   {
-    lastCirclePosition[circleNumber] = circlePosition[circleNumber];
-    circlePosition[circleNumber] = mouseX;
+    lastCirclePosition[circleNumber] = circlePos[circleNumber];
+    circlePos[circleNumber] = mouseX;
     sliderTime = true;
   }
   else
   {
     sliderTime = false; 
+    circlePosition = new int[] {-1000, -1000};
+    lastCirclePosition = new int[] {-1000, -1000};
   }
   
   // Sposta le lancette in base ai cerchi
   if (sliderTime && (circlePosition[0] != lastCirclePosition[0]))
   {
      rotationS = radians(1.8 * (circlePosition[0] - secSliderPosX1));
-     println("cai1");
   }
   if (sliderTime && (circlePosition[1] != lastCirclePosition[1]))
   {
      rotationM = radians(1.8 * (circlePosition[1] - secSliderPosX1));
-     println("cai2");
   }
-  if (sliderTime && (circlePosition[2] != lastCirclePosition[2]))
-  {
-     rotationH = radians(1.8 * (circlePosition[2] - secSliderPosX1));
-     println("cai3");
-  }
-  
 }
 
 
@@ -144,15 +133,3 @@ boolean isOnSlider(int sliderPosY)
   return ((mouseX > secSliderPosX1) && (mouseX < secSliderPosX2) && 
   (mouseY > sliderPosY - 20) && (mouseY < sliderPosY + 20));
 }
-
-
-//int isOnSliderNumber()
-//{
-//  if ((mouseY > secSliderPosY - 15) && (mouseY < secSliderPosY + 15)) return 0;
-  
-//  else if ((mouseY > minSliderPosY - 15) && (mouseY < minSliderPosY + 15)) return 1;
-  
-//  else if ((mouseY > hourSliderPosY - 15) && (mouseY < hourSliderPosY + 15)) return 2;
-  
-//  else return 3;
-//}

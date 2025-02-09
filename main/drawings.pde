@@ -80,8 +80,6 @@ void drawSlider(int sliderPosX1, int sliderPosX2, int sliderPosY, int circlePosi
 
 void drawBird()
 {
-  if (degrees(rotationM) >= 354 || drawingBird) 
-  {
     if (millis() - startTime < birdDuration)
     {
       pushMatrix();
@@ -89,10 +87,5 @@ void drawBird()
       scale(birdSize);
       image(bird, 0, 0);
       popMatrix();
-      
-      drawingBird = true;
     }
-    else
-      drawingBird = false;
-  }
 }

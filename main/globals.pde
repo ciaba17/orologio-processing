@@ -40,9 +40,5 @@ int minSliderPosX1;
 int minSliderPosX2;
 int minSliderPosY;
 
-int hourSliderPosX1;
-int hourSliderPosX2;
-int hourSliderPosY;
-
 int circlePosition[];
 int lastCirclePosition[];
