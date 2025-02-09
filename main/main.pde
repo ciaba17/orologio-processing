@@ -6,9 +6,7 @@ void setup()
     
   imageMode(CENTER); // Imposta il riferimento al centro dell'immagine
   
-  circlePos1 = 0;
-  circlePos2 = 0;
-  circlePos3 = 0;
+  circlePosition = new int[] {0, 0, 0};
   addTime = 0;
   lastWidth = 0;
   lastHeight = 0;
@@ -43,9 +41,9 @@ void draw()
   drawHands();
   drawButton();
   
-  drawSlider(secSliderPosX1, secSliderPosX2, secSliderPosY, circlePos1);
-  drawSlider(minSliderPosX1, minSliderPosX2, minSliderPosY, circlePos2);
-  drawSlider(hourSliderPosX1, hourSliderPosX2, hourSliderPosY, circlePos3);
+  drawSlider(secSliderPosX1, secSliderPosX2, secSliderPosY, circlePosition, 0);
+  drawSlider(minSliderPosX1, minSliderPosX2, minSliderPosY, circlePosition, 1);
+  drawSlider(hourSliderPosX1, hourSliderPosX2, hourSliderPosY, circlePosition, 2);
   
   drawBird();  
 }

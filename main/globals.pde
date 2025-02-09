@@ -44,7 +44,4 @@ int hourSliderPosX1;
 int hourSliderPosX2;
 int hourSliderPosY;
 
-
-int circlePos1;
-int circlePos2;
-int circlePos3;
+int circlePosition[];

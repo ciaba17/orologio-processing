@@ -57,7 +57,7 @@ void handLogic()
   }
   else if (sliderTime)
   {
-     rotationS = radians(1.8 * (circlePos1 - secSliderPosX1));
+     rotationS = radians(1.8 * (circlePosition[0] - secSliderPosX1));
      sliderTime = false;
   }
   
@@ -106,8 +106,8 @@ boolean onSystemTimeButton() // Funzione per verificare se il mouse è all'inter
 }
 
 
-boolean isOnSlider()
+boolean isOnSlider(int sliderPosY)
 {
   return ((mouseX > secSliderPosX1) && (mouseX < secSliderPosX2) && 
-  (mouseY > secSliderPosY - 15) && (mouseY < secSliderPosY + 15));
+  (mouseY > sliderPosY - 15) && (mouseY < sliderPosY + 15));
 }
