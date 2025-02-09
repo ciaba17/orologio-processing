@@ -55,13 +55,7 @@ void handLogic()
       cuckooSound.play();
     }
   }
-  else if (sliderTime)
-  {
-     rotationS = radians(1.8 * (circlePosition[0] - secSliderPosX1));
-     sliderTime = false;
-  }
-  
-  else if (false)
+  else if (systemTime)
   {
     // Modalità orario di sistema: le lancette seguono l'orario reale
     s = second();
@@ -77,6 +71,36 @@ void handLogic()
     lastWidth = width;
     lastHeight = height;
   } 
+}
+
+
+void sliderLogic(int sliderPosY, int circlePosition[], int circleNumber)
+{
+  // Gestisce le posizioni dei cerchi
+  if (isOnSlider(sliderPosY) && mousePressed && !systemTime)
+  {
+    lastCirclePosition[circleNumber] = circlePosition[circleNumber];
+    circlePosition[isOnSliderNumber()] = mouseX;
+    sliderTime = true;
+  }
+  
+  // Sposta le lancette in base ai cerchi
+  if (sliderTime && (circlePosition[0] != lastCirclePosition[0]))
+  {
+     rotationS = radians(1.8 * (circlePosition[0] - secSliderPosX1));
+     println("cai1");
+  }
+  if (sliderTime && (circlePosition[1] != lastCirclePosition[1]))
+  {
+     rotationM = radians(1.8 * (circlePosition[1] - secSliderPosX1));
+     println("cai2");
+  }
+  if (sliderTime && (circlePosition[2] != lastCirclePosition[2]))
+  {
+     rotationH = radians(1.8 * (circlePosition[2] - secSliderPosX1));
+     println("cai3");
+  }
+  
 }
 
 
@@ -111,3 +135,15 @@ boolean isOnSlider(int sliderPosY)
   return ((mouseX > secSliderPosX1) && (mouseX < secSliderPosX2) && 
   (mouseY > sliderPosY - 15) && (mouseY < sliderPosY + 15));
 }
+
+
+//int isOnSliderNumber()
+//{
+//  if ((mouseY > secSliderPosY - 15) && (mouseY < secSliderPosY + 15)) return 0;
+  
+//  else if ((mouseY > minSliderPosY - 15) && (mouseY < minSliderPosY + 15)) return 1;
+  
+//  else if ((mouseY > hourSliderPosY - 15) && (mouseY < hourSliderPosY + 15)) return 2;
+  
+//  else return 3;
+//}

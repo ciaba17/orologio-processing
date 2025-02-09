@@ -45,3 +45,4 @@ int hourSliderPosX2;
 int hourSliderPosY;
 
 int circlePosition[];
+int lastCirclePosition[];

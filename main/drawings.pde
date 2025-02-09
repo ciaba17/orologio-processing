@@ -69,16 +69,12 @@ void drawSlider(int sliderPosX1, int sliderPosX2, int sliderPosY, int circlePosi
   stroke(255,135,0);
   line(sliderPosX1, sliderPosY, sliderPosX2, sliderPosY);
   
-  if (isOnSlider(sliderPosY) && mousePressed && !systemTime)
-  {
-    sliderTime = true;
-    circlePosition[circleNumber] = mouseX;
-  }
+  sliderLogic(sliderPosY, circlePosition, circleNumber);
   
   // Disegna il cerchio
   strokeWeight(0);
   fill(230,0,0);
-  circle(circlePosition[circleNumber],sliderPosY,20);
+  circle(circlePosition[circleNumber], sliderPosY, 20);
 }
 
 

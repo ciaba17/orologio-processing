@@ -6,7 +6,9 @@ void setup()
     
   imageMode(CENTER); // Imposta il riferimento al centro dell'immagine
   
-  circlePosition = new int[] {0, 0, 0};
+  circlePosition = new int[] {secSliderPosX1, secSliderPosX1, secSliderPosX1, secSliderPosX1};
+  lastCirclePosition = new int[] {secSliderPosX1, secSliderPosX1, secSliderPosX1, secSliderPosX1};
+  
   addTime = 0;
   lastWidth = 0;
   lastHeight = 0;
@@ -33,7 +35,6 @@ void setup()
 
 void draw() 
 {
-  println(degrees(rotationS));
   background(247);
   update();
   
