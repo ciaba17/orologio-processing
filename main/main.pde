@@ -17,13 +17,15 @@ void setup()
   bird = loadImage("../sprites/bird.png");
   
   buttonColor = new int[] {255, 255, 255}; // Colore iniziale del pulsante (bianco)
-    
+  
+  startTime = -3000;
   birdDuration = 3000; // In millisecondi
   drawingBird = false;
 
   // Carica il suono
   minim = new Minim(this);
   cuckooSound = minim.loadFile("../sounds/cucu.mp3");
+  tickingSound = minim.loadFile("../sounds/ticking.mp3");
   
   
   sliderTime = false;

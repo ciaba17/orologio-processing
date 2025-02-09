@@ -37,7 +37,11 @@ void handLogic()
   
     // Se il secondo corrente è cambiato, aggiorna la rotazione della lancetta dei secondi
     if (s != sPrecedente)
+    {
       rotationS += radians(6);
+      tickingSound.rewind();
+      tickingSound.play();
+    }
     
     // Se la rotazione dei secondi ha raggiunto quasi il giro completo,
     // resetta la rotazione dei secondi e incrementa quella dei minuti

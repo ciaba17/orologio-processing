@@ -30,6 +30,7 @@ boolean drawingBird;
 // ----- Variabili per l'audio -----
 Minim minim;
 AudioPlayer cuckooSound;
+AudioPlayer tickingSound;
 
 // ----- Variabili per lo slider -----
 int secSliderPosX1;
