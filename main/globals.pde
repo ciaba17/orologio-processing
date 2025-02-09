@@ -1,31 +1,36 @@
-import ddf.minim.*;
-
 // ----- Variabili per le immagini -----
-PImage hand, clock, bird; // Immagini per le lancette e l'orologio
+PImage hand, clock, bird;
+PImage wallpaper[] = new PImage[5];
+int wallpaperNumber = 0;
+
 
 // ----- Variabili per la rotazione delle lancette (in radianti) -----
 float rotationS, rotationM, rotationH;
 
 // ----- Variabili per l'orario -----
 int s, m, h;
-int addTime;
+int addTime = 0;
 
 // ----- Variabili per il pulsante di attivazione/disattivazione dell'orario di sistema -----
 int systemTimeButtonPosX, systemTimeButtonPosY;
 int systemTimeButtonSizeX, systemTimeButtonSizeY;
-boolean systemTime;
-boolean sliderTime;
-int buttonColor[];
+boolean systemTime = false; // Inizialmente il pulsante è disattivato (non usa l'orario di sistema)
+boolean sliderTime = false;
+int systemTimeButtonColor[] = {255, 255, 255}; // Colore iniziale del pulsante (bianco);
+
+// ----- Variabili per il pulsante di attivazione/disattivazione dell'orario di sistema -----
+int wallpaperButtonPosY;
+int wallpaperButtonColor[] = {255, 255, 255}; // Colore iniziale del pulsante (bianco);
 
 // ----- Variabili per la gestione delle dimensioni -----
 float clockSize;
 float birdSize;
-int lastWidth, lastHeight;
+int lastWidth = 0, lastHeight = 0;
 
 // ----- Variabili per il tempo a schermo dell'uccellino -----
-int birdDuration;
-int startTime;
-boolean drawingBird;
+int birdDuration = 3000; // In millisecondi
+int startTime = -3000; // Per evitare che l'immagine venga disegnata i primi tre secondi
+boolean drawingBird = false;
 
 // ----- Variabili per l'audio -----
 Minim minim;

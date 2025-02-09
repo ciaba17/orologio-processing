@@ -7,6 +7,8 @@ void sizeChange()
     systemTimeButtonSizeX = width / 6;
     systemTimeButtonSizeY = width / 24;
     
+    wallpaperButtonPosY = systemTimeButtonPosY + height*1/7;
+    
     clockSize = (clock.width/2) * (float(width)/610000); 
     birdSize = (bird.width/2) * (float(width)/610000); 
     
@@ -65,11 +67,20 @@ void handLogic()
   else if (systemTime)
   {
     // Modalità orario di sistema: le lancette seguono l'orario reale
+    
+    int sPrecedente = s;
+
     s = second();
     m = minute();
-    h = hour();
+    h = (hour() > 12) ? h - 12 : h; // Converte l'orario in formato AM/PM
+
     
-    h = (h > 12) ? h - 12 : h; // Converte l'orario in formato AM/PM
+    if (s != sPrecedente)
+    {
+      tickingSound.rewind();
+      tickingSound.play();
+    }
+    
     
     rotationS = s * radians(6);
     rotationM = m * radians(6);
@@ -98,6 +109,8 @@ void sliderLogic(int sliderPosY, int circlePos[], int circleNumber)
   if (sliderTime && (circlePosition[0] != lastCirclePosition[0]))
   {
      rotationS = radians(1.8 * (circlePosition[0] - secSliderPosX1));
+     tickingSound.rewind();
+     tickingSound.play();
   }
   if (sliderTime && (circlePosition[1] != lastCirclePosition[1]))
   {
@@ -112,6 +125,8 @@ void addTime()
   {
   case 1:
     rotationS += radians(6);
+    tickingSound.rewind();
+    tickingSound.play();
     delay(100);
     break;
   case 2:
@@ -125,11 +140,12 @@ void addTime()
 }
 
 
-boolean onSystemTimeButton() // Funzione per verificare se il mouse è all'interno dell'area del pulsante
+boolean onButton(int posY) // Funzione per verificare se il mouse è all'interno dell'area del pulsante
 {
   return ((mouseX > systemTimeButtonPosX) && (mouseX < systemTimeButtonPosX + systemTimeButtonSizeX) &&
-          (mouseY > systemTimeButtonPosY) && (mouseY < systemTimeButtonPosY + systemTimeButtonSizeY));
+          (mouseY > posY) && (mouseY < posY + systemTimeButtonSizeY));
 }
+
 
 
 boolean isOnSlider(int sliderPosY)

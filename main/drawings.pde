@@ -40,21 +40,19 @@ void drawHands()
 }
 
 
-void drawButton()
+void drawButton(String text, int posX, int posY, int sizeX, int sizeY,int buttonColor[])
 {
   // Disegna il pulsante
   stroke(0);
   fill(buttonColor[0], buttonColor[1], buttonColor[2]);
   strokeWeight(systemTimeButtonSizeY/20);
 
-  rect(systemTimeButtonPosX, systemTimeButtonPosY, systemTimeButtonSizeX, systemTimeButtonSizeY, systemTimeButtonSizeY / 1.8);
+  rect(posX, posY, sizeX, sizeY, sizeX/20);
   
   // Disegna il testo
   fill(0, 0, 0);
-  textSize(systemTimeButtonSizeX / 7.4);
-  text("orario di sistema", 
-  systemTimeButtonPosX * 1.043, 
-  systemTimeButtonPosY + systemTimeButtonSizeY * 0.7);
+  textSize(sizeX / text.length()*2);
+  text(text, posX + sizeX/2, posY + sizeY/2);
 }
 
 
