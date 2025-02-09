@@ -40,16 +40,14 @@ void keyReleased()
 
 void mousePressed() 
 {
-  // Se il mouse è sul pulsante e il sistema non usa l'orario di sistema,
-  // attiva l'orario di sistema e cambia il colore del pulsante
-  if (onButton(wallpaperButtonPosY) && !systemTime) 
+  // Attiva l'orario di sistema e cambia il colore del pulsante
+  if (onButton(systemTimeButtonPosY) && !systemTime) 
   {
     systemTime = true;
     systemTimeButtonColor = new int[] {200, 0, 0};
   }
-  // Se il pulsante viene premuto e l'orario di sistema è attivo,
-  // disattiva l'orario di sistema e ripristina il colore del pulsante
-  else if (onButton(wallpaperButtonPosY) && systemTime) 
+  // Disattiva l'orario di sistema e ripristina il colore del pulsante
+  else if (onButton(systemTimeButtonPosY) && systemTime) 
   {
     systemTime = false; 
     systemTimeButtonColor = new int[] {255, 255, 255};
@@ -60,6 +58,7 @@ void mousePressed()
     rotationH = 0;
   }
   
+  // Cambia lo sfondo
   if (onButton(wallpaperButtonPosY))
   {
     wallpaperNumber++;

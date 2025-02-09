@@ -20,7 +20,7 @@ void setup()
   wallpaper[2] = loadImage("../sprites/wallpapers/wallpaper2.jpg");
   wallpaper[3] = loadImage("../sprites/wallpapers/wallpaper3.jpg");
 
-  // Carica il suono
+  // Carica i suoni
   minim = new Minim(this);
   cuckooSound = minim.loadFile("../sounds/cucu.mp3");
   tickingSound = minim.loadFile("../sounds/ticking.mp3");

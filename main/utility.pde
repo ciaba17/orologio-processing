@@ -72,7 +72,7 @@ void handLogic()
 
     s = second();
     m = minute();
-    h = (hour() > 12) ? h - 12 : h; // Converte l'orario in formato AM/PM
+    h = (hour() > 12) ? hour() - 12 : hour(); // Converte l'orario in formato AM/PM
 
     
     if (s != sPrecedente)
