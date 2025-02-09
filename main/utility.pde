@@ -2,6 +2,7 @@ void sizeChange()
 {
   if (lastWidth != width)
   {
+    println("cai");
     systemTimeButtonPosX = width * 1/12;
     systemTimeButtonPosY = height * 1/12;
     systemTimeButtonSizeX = width / 6;
@@ -15,13 +16,20 @@ void sizeChange()
     secSliderPosY = height * 1/7;
     
     minSliderPosX1 = width*4/6;
-    minSliderPosX2 = hourSliderPosX1 + 200;
+    minSliderPosX2 = minSliderPosX1 + 200;
     minSliderPosY = height * 3/14;
     
     hourSliderPosX1 = width*4/6;
     hourSliderPosX2 = hourSliderPosX1 + 200;
     hourSliderPosY = height * 2/7;
+    
+    circlePosition = new int[] {secSliderPosX1, secSliderPosX1, secSliderPosX1, secSliderPosX1};
+    lastCirclePosition = new int[] {secSliderPosX1, secSliderPosX1, secSliderPosX1, secSliderPosX1};
+
   } 
+  
+  lastWidth = width;
+  lastHeight = height;
 }
 
 
@@ -67,9 +75,6 @@ void handLogic()
     rotationS = s * radians(6);
     rotationM = m * radians(6);
     rotationH = h * radians(30);
-    
-    lastWidth = width;
-    lastHeight = height;
   } 
 }
 
@@ -80,8 +85,12 @@ void sliderLogic(int sliderPosY, int circlePosition[], int circleNumber)
   if (isOnSlider(sliderPosY) && mousePressed && !systemTime)
   {
     lastCirclePosition[circleNumber] = circlePosition[circleNumber];
-    circlePosition[isOnSliderNumber()] = mouseX;
+    circlePosition[circleNumber] = mouseX;
     sliderTime = true;
+  }
+  else
+  {
+    sliderTime = false; 
   }
   
   // Sposta le lancette in base ai cerchi
@@ -133,7 +142,7 @@ boolean onSystemTimeButton() // Funzione per verificare se il mouse è all'inter
 boolean isOnSlider(int sliderPosY)
 {
   return ((mouseX > secSliderPosX1) && (mouseX < secSliderPosX2) && 
-  (mouseY > sliderPosY - 15) && (mouseY < sliderPosY + 15));
+  (mouseY > sliderPosY - 20) && (mouseY < sliderPosY + 20));
 }
 
 
