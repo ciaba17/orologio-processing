@@ -5,11 +5,13 @@ int wallpaperNumber = 0;
 
 
 // ----- Variabili per la rotazione delle lancette (in radianti) -----
-float rotationS, rotationM, rotationH;
+float rotationS = 0, rotationM = 0, rotationH = 0;
+float fullRotationM = 0, fullRotationH = 0;
 
 // ----- Variabili per l'orario -----
 int s, m, h;
 int addTime = 0;
+boolean setSystemTime = false;
 
 // ----- Variabili per il pulsante di attivazione/disattivazione dell'orario di sistema -----
 int systemTimeButtonPosX, systemTimeButtonPosY;
@@ -18,9 +20,13 @@ boolean systemTime = false; // Inizialmente il pulsante è disattivato (non usa 
 boolean sliderTime = false;
 int systemTimeButtonColor[] = {255, 255, 255}; // Colore iniziale del pulsante (bianco);
 
-// ----- Variabili per il pulsante di attivazione/disattivazione dell'orario di sistema -----
+// ----- Variabili per il pulsante di attivazione/disattivazione dei wallpaper -----
 int wallpaperButtonPosY;
 int wallpaperButtonColor[] = {255, 255, 255}; // Colore iniziale del pulsante (bianco);
+
+// ----- Variabili per l'allarme -----
+int  alarmPosY;
+int alarmSizeX, alarmSizeY;
 
 // ----- Variabili per la gestione delle dimensioni -----
 float clockSize;

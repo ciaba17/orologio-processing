@@ -44,6 +44,7 @@ void mousePressed()
   if (onButton(systemTimeButtonPosY) && !systemTime) 
   {
     systemTime = true;
+    setSystemTime = true;
     systemTimeButtonColor = new int[] {200, 0, 0};
   }
   // Disattiva l'orario di sistema e ripristina il colore del pulsante
@@ -61,6 +62,9 @@ void mousePressed()
   // Cambia lo sfondo
   if (onButton(wallpaperButtonPosY))
   {
+    if (wallpaperNumber >= 3)
+      wallpaperNumber = -1;
+      
     wallpaperNumber++;
   }
 }

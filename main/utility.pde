@@ -9,6 +9,10 @@ void sizeChange()
     
     wallpaperButtonPosY = systemTimeButtonPosY + height*1/7;
     
+    alarmPosY = systemTimeButtonPosY + height *2/7;
+    alarmSizeX = width / 6;
+    alarmSizeY =width / 12;
+    
     clockSize = (clock.width/2) * (float(width)/610000); 
     birdSize = (bird.width/2) * (float(width)/610000); 
     

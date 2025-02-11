@@ -42,6 +42,8 @@ void draw()
   drawSlider(secSliderPosX1, secSliderPosX2, secSliderPosY, circlePosition, 0);
   drawSlider(minSliderPosX1, minSliderPosX2, minSliderPosY, circlePosition, 1);  
   
+  drawAlarm();
+  
   drawBird();
 }
 

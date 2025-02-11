@@ -56,6 +56,15 @@ void drawButton(String text, int posX, int posY, int sizeX, int sizeY,int button
 }
 
 
+void drawAlarm()
+{
+  strokeWeight(systemTimeButtonSizeY/20);
+  stroke(0);
+  fill(255);
+   rect(systemTimeButtonPosX, alarmPosY,alarmSizeX,alarmSizeY, alarmSizeX/20);
+}
+
+
 void drawSlider(int sliderPosX1, int sliderPosX2, int sliderPosY, int circlePosition[], int circleNumber)
 {
   // Disegna lo slider
