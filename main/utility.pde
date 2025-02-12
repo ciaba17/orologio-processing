@@ -9,9 +9,10 @@ void sizeChange()
     
     wallpaperButtonPosY = systemTimeButtonPosY + height*1/7;
     
-    alarmPosY = systemTimeButtonPosY + height *2/7;
-    alarmSizeX = width / 6;
-    alarmSizeY =width / 12;
+    alarmSizeX = width / 4;
+    alarmSizeY =width / 10;
+    alarmPosX = systemTimeButtonPosX + ((systemTimeButtonSizeX - alarmSizeX)/2); // Mette la casella al centro rispetto agli altri pulsanti
+    alarmPosY = systemTimeButtonPosY + height *3/7;
     
     clockSize = (clock.width/2) * (float(width)/610000); 
     birdSize = (bird.width/2) * (float(width)/610000); 

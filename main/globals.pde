@@ -25,6 +25,7 @@ int wallpaperButtonPosY;
 int wallpaperButtonColor[] = {255, 255, 255}; // Colore iniziale del pulsante (bianco);
 
 // ----- Variabili per l'allarme -----
+int alarmPosX;
 int  alarmPosY;
 int alarmSizeX, alarmSizeY;
 

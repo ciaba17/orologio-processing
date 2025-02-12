@@ -61,7 +61,7 @@ void drawAlarm()
   strokeWeight(systemTimeButtonSizeY/20);
   stroke(0);
   fill(255);
-   rect(systemTimeButtonPosX, alarmPosY,alarmSizeX,alarmSizeY, alarmSizeX/20);
+   rect(alarmPosX, alarmPosY,alarmSizeX,alarmSizeY, alarmSizeX/20);
 }
 
 
