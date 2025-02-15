@@ -1,6 +1,6 @@
 // ----- Variabili per le immagini -----
 PImage hand, clock, bird;
-PImage wallpaper[] = new PImage[5];
+PImage wallpaper[] = new PImage[8];
 int wallpaperNumber = 0;
 
 

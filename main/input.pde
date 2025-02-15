@@ -3,7 +3,7 @@ void keyPressed()
   // In modalità manuale, permetti l'avanzamento delle lancette tramite tasti
   if (!systemTime) 
   {
-    switch (key) 
+    switch (Character.toLowerCase(key)) 
     {
       case 'z':
         addTime = 1;
@@ -14,15 +14,25 @@ void keyPressed()
       case 'c':
         addTime = 3;
         break;
+        
+      case 'v':
+        addTime = 4;
+        break;
+      case 'b':
+        addTime = 5;
+        break;
+      case 'n':
+        addTime = 6;
     }
   }
 }
 
 void keyReleased() 
 {
+  // Rimuove e aggiunge tempo quando system time è disattivato
   if (!systemTime) 
   {
-    switch (key) 
+    switch (Character.toLowerCase(key)) 
     {
       case 'z':
         addTime = 0;
@@ -33,6 +43,15 @@ void keyReleased()
       case 'c':
         addTime = 0;
         break;
+        
+      case 'v':
+        addTime = 0;
+        break;
+      case 'b':
+        addTime = 0;
+        break;
+      case 'n':
+        addTime = 0;
     }
   }
 }
@@ -62,7 +81,7 @@ void mousePressed()
   // Cambia lo sfondo
   if (onButton(wallpaperButtonPosY))
   {
-    if (wallpaperNumber >= 3)
+    if (wallpaperNumber >= 7)
       wallpaperNumber = -1;
       
     wallpaperNumber++;

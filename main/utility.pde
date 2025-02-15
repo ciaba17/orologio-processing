@@ -1,4 +1,4 @@
-void sizeChange()
+void sizeChange() // Ridimensiona gli oggetti a schermo se la finestra viene ridimensionata
 {
   if (lastWidth != width)
   {
@@ -124,7 +124,7 @@ void sliderLogic(int sliderPosY, int circlePos[], int circleNumber)
 }
 
 
-void addTime()
+void addTime() // Quando scocca la lancetta meno significativa, quella dopo aumenta di 1 tick
 {
   switch (addTime)
   {
@@ -141,7 +141,23 @@ void addTime()
   case 3:
     rotationH += radians(30);
     delay(200);
-  } 
+    break;
+    
+  case 4:
+    rotationS -= radians(6);
+    delay(100);
+    break;
+  
+  case 5:
+    rotationM -= radians(6);
+    delay(100);
+    break;
+    
+  case 6:
+    rotationH -= radians(30);
+    delay(200);
+    break;
+  }
 }
 
 
@@ -153,7 +169,7 @@ boolean onButton(int posY) // Funzione per verificare se il mouse è all'interno
 
 
 
-boolean isOnSlider(int sliderPosY)
+boolean isOnSlider(int sliderPosY) // Funzione per verificare se il mouse è all'interno dell'area dello slider
 {
   return ((mouseX > secSliderPosX1) && (mouseX < secSliderPosX2) && 
   (mouseY > sliderPosY - 20) && (mouseY < sliderPosY + 20));

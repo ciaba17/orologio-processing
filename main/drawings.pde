@@ -1,4 +1,5 @@
 void drawClock() {
+  // Disegna l'orologio
   pushMatrix();
   translate(width/2, height/2 + clockSize*83.5);
   scale(clockSize);
@@ -56,15 +57,6 @@ void drawButton(String text, int posX, int posY, int sizeX, int sizeY,int button
 }
 
 
-void drawAlarm()
-{
-  strokeWeight(systemTimeButtonSizeY/20);
-  stroke(0);
-  fill(255);
-   rect(alarmPosX, alarmPosY,alarmSizeX,alarmSizeY, alarmSizeX/20);
-}
-
-
 void drawSlider(int sliderPosX1, int sliderPosX2, int sliderPosY, int circlePosition[], int circleNumber)
 {
   // Disegna lo slider
@@ -87,8 +79,9 @@ void drawSlider(int sliderPosX1, int sliderPosX2, int sliderPosY, int circlePosi
 
 void drawBird()
 {
-    if (millis() - startTime < birdDuration)
+    if (millis() - startTime < birdDuration) // Timer per quanto tempo deve rimanere a schermo il cucu
     {
+      // Disegna il cucu
       pushMatrix();
       translate(width / 2, height / 2 - birdSize*600);
       scale(birdSize);
